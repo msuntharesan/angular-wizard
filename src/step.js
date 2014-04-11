@@ -7,12 +7,15 @@ angular.module('mgo-angular-wizard').directive('wzStep', function() {
             wzTitle: '@',
             title: '@'
         },
-        require: '^wizard',
+        require: ['^wizard', '^form'],
         templateUrl: function(element, attributes) {
           return attributes.template || "step.html";
         },
-        link: function($scope, $element, $attrs, wizard) {
+        link: function($scope, $element, $attrs, requires) {
             $scope.title = $scope.title || $scope.wzTitle;
+            var form = ctrls[1];
+            $scope.form = form;
+            var wizard = ctrls[0];
             wizard.addStep($scope);
         }
     }

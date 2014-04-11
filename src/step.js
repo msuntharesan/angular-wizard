@@ -11,7 +11,7 @@ angular.module('mgo-angular-wizard').directive('wzStep', function() {
         templateUrl: function(element, attributes) {
           return attributes.template || "step.html";
         },
-        link: function($scope, $element, $attrs, requires) {
+        link: function($scope, $element, $attrs, ctrls) {
             $scope.title = $scope.title || $scope.wzTitle;
             var form = ctrls[1];
             $scope.form = form;
